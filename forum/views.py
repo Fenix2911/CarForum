@@ -1,7 +1,9 @@
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views import View
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.db.models.signals import post_save
@@ -11,16 +13,46 @@ from .models import CustomUser, Follow, Notification
 
 class HomePageView(View):
     def get(self, request):
-        return render(request, "base.html")
+        return render(request, "forum/index.html", )
+
+class RegisterUserView(View):
+    def get(self, request):
+        return render(request, "forum/register.html")
+
+    def post(self, request):
+        username = request.POST.get("username")
+        email = request.POST.get("email")
+        password = request.POST.get("password")
+        CustomUser.objects.create_user(username=username, email=email, password=password)
+        return redirect("login")
+
+class ProfileView(DetailView):
+    template_name = "forum/profile.html"
+    model = CustomUser
+    context_object_name = "profile"
+    slug_field = "username"
+    slug_url_kwarg = "username"
+
+
+class SettingsView(LoginRequiredMixin, View):
+    def get(self, request):
+        return render(request, "forum/settings.html")
 
 
 class MostRatedCarsView(View):
     def get(self, request):
-        return render(request, "forum/index.html")
+        return render(request, "forum/highlighted.html")
+
 
 class LoginPageView(View):
     def get(self, request):
-        return render(request, "registration/login.html")
+            return render(request, "registration/login.html")
+
+
+
+class LogoutPageView(View):
+        def get(self, request):
+            logout(request)
 
 
 class FollowUserView(LoginRequiredMixin, View):
