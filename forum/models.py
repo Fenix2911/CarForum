@@ -9,7 +9,7 @@ class CustomUser(AbstractUser):
     bio = models.TextField(blank=True, null=True)
 
     def __str__(self):
-        return f"Name:{self.username}, bio:{self.bio}"
+        return f"Name:{self.username}"
 
     @property
     def followers_count(self):
@@ -46,7 +46,7 @@ class Car(models.Model):
         blank=True,
         null=True
     )
-    image = models.ImageField(upload_to='car_images/', blank=True, null=True)
+    image = models.ImageField(upload_to='images/car_images/', blank=True, null=True)
 
     def __str__(self):
         return f"{self.brand} {self.model} ({self.year})"

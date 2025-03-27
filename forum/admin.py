@@ -11,10 +11,15 @@ class CustomUserAdmin(UserAdmin):
         (None, {'fields': ('avatar', 'bio')}),
     )
 
+class CarAdmin(admin.ModelAdmin):
+    list_display = ('brand', 'model', 'year', 'horsepower', 'owner')
+    search_fields = ('brand', 'model')
+    ordering = ('brand', 'model')
+
 admin.site.register(CustomUser, CustomUserAdmin)
 
 # Rejestracja pozostałych modeli
-admin.site.register(Car)
+admin.site.register(Car, CarAdmin)
 admin.site.register(Post)
 admin.site.register(Like)
 admin.site.register(Comment)

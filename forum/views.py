@@ -8,7 +8,7 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.db.models.signals import post_save
 from django.dispatch import receiver
-from .models import CustomUser, Follow, Notification
+from .models import CustomUser, Follow, Notification, Car
 
 
 class HomePageView(View):
@@ -39,9 +39,16 @@ class SettingsView(LoginRequiredMixin, View):
         return render(request, "forum/settings.html")
 
 
-class MostRatedCarsView(View):
-    def get(self, request):
-        return render(request, "forum/highlighted.html")
+class MostRatedCarsView(ListView):
+    model = Car
+    template_name = "forum/highlighted.html"
+
+    def get_context_data(
+        self, *, object_list = ..., **kwargs
+    ):
+        context = super().get_context_data(**kwargs)
+        context["top_cars"] = Car.objects.order_by("-horsepower")[:3]
+        return context
 
 
 class LoginPageView(View):
