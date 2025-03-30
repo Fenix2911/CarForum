@@ -27,15 +27,15 @@
                 <!-- Menu dla urządzeń mobilnych: widoczne do breakpointa lg -->
                 <div class="dropdown dropdown-hover lg:hidden">
                     <div tabindex="0" role="button" class="btn rounded-2xl">Menu</div>
-                    <ul tabindex="0" class="dropdown-content menu  bg-base-100 rounded-box w-52 p-2 mt-3 shadow">
-                        <li><a class="btn btn-ghost text-xl" href="{% url 'home-page' %}">Home Page</a></li>
-                        <li><a class="btn btn-ghost text-xl" href="{% url 'highlighted' %}">Highlighted</a></li>
-                        <li><a class="btn btn-ghost text-xl">Forum</a></li>
-                        <li><a class="btn btn-ghost text-xl">Shop</a></li>
+                    <ul tabindex="0" class="dropdown-content menu bg-base-200 rounded-box w-52 p-2 mt-3 shadow ">
+                        <li><a class="btn btn-ghost font-normal" href="{% url 'home-page' %}">Home Page</a></li>
+                        <li><a class="btn btn-ghost font-normal" href="{% url 'highlighted' %}">Highlighted</a></li>
+                        <li><a class="btn btn-ghost font-normal">Forum</a></li>
+                        <li><a class="btn btn-ghost font-normal">Shop</a></li>
                     </ul>
                 </div>
                 <!-- Menu dla dużych ekranów: widoczne dopiero od lg -->
-                <div class="hidden lg:flex">
+                <div class="hidden lg:flex gap-4">
                     <a class="btn btn-ghost text-xl" href="{% url 'home-page' %}">Home Page</a>
                     <a class="btn btn-ghost text-xl" href="{% url 'highlighted' %}">Highlighted</a>
                     <a class="btn btn-ghost text-xl">Forum</a>
@@ -69,7 +69,7 @@
                 <div class="form-control">
                     <input type="text" placeholder="Search" class="input input-bordered w-24 md:w-auto"/>
                 </div>
-                <div class="dropdown dropdown-end">
+                <div class="dropdown dropdown-end ">
                     <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
                         <div class="w-10 rounded-full">
                             <img
@@ -80,23 +80,23 @@
 
                     <ul
                             tabindex="0"
-                            class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+                            class="menu menu-sm dropdown-content bg-base-200 rounded-box z-1 mt-3 w-52 p-2 shadow">
                         {% if user.is_authenticated %}
                             <li>
-                                <a class="justify-between" href="{% url 'profile' user.username %}">
+                                <a class="justify-between lg:text-2xl" href="{% url 'profile' user.username %}">
                                     Profile
                                     <span class="badge">New</span>
                                 </a>
                             </li>
-                            <li><a>Settings</a></li>
+                            <li><a class="justify-between lg:text-2xl">Settings</a></li>
                             <form method="post" action="{% url 'logout' %}">
                                 {% csrf_token %}
-                                <li><a>
+                                <li><a class="justify-between lg:text-2xl">
                                     <button type="submit">Logout</button>
                                 </a></li>
                             </form>
                         {% else %}
-                            <li><a href="{% url 'login' %}">Login</a></li>
+                            <li><a class="justify-between lg:text-2xl" href="{% url 'login' %}">Login</a></li>
                         {% endif %}
 
                     </ul>
@@ -105,14 +105,14 @@
         </div>
     {% endblock %}
 </nav>
-<main class="flex-grow z-0">
+<main class="flex-grow z-0 m-0 ">
     {% block main %}
 
     {% endblock %}
 </main>
-<footer class="footer footer-horizontal footer-center text-base-content rounded p-8 backdrop-brightness-75 md:footer-horizontal">
+<footer class="footer footer-horizontal footer-center text-base-content rounded-lg p-8 backdrop-brightness-75 md:footer-horizontal">
     {% block footer %}
-        <nav class="grid grid-flow-col gap-4">
+        <nav class="grid grid-flow-col gap-4 lg:text-2xl">
             <a class="link link-hover">Home Page</a>
             <a class="link link-hover">Highlighted</a>
             <a class="link link-hover">Forum</a>

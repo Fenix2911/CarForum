@@ -1,28 +1,40 @@
 {% extends "base.html" %}
 {% block main %}
-    <div class="card lg:card-side bg-base-100 shadow-sm my-4 min-h-[600px]">
-        <figure class="lg:w-[60%] flex items-center justify-center p-4">
-            <img
-                src="media/images/car_images/zdjecie.jpg"
-                alt="Album"
-                class="rounded-lg shadow-2xl object-cover max-h-[600px] w-full"/>
-        </figure>
-        <div class="card-body lg:w-[40%] flex flex-col justify-center">
-            <h2 class="card-title">New album is released!</h2>
-            <p>Click the button to listen on Spotiwhy app.</p>
-            <div class="card-actions justify-end">
-                <button class="btn btn-primary">Listen</button>
-            </div>
+<div class="card lg:card-side shadow-lg min-h-[600px] m-5 overflow-x-hidden">
+    <figure class="lg:w-[60%] w-full flex items-center justify-center p-4">
+        <img
+            src="media/images/car_images/zdjecie.jpg"
+            alt="Album"
+            class="rounded-lg object-cover max-h-[600px] w-full"/>
+    </figure>
+    <div class="card-body lg:w-[40%] w-full flex flex-col justify-center">
+        <article class="text-pretty">
+            <h2 class="card-title text-3xl md:text-5xl my-8 break-words">Picture from latest spot👀</h2>
+            <p class="line-clamp-4 md:line-clamp-8 md:text-xl text-base">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci beatae debitis
+                delectus dolorum, eum ex expedita inventore perspiciatis placeat porro quidem soluta tenetur
+                voluptatum! Consequatur distinctio dolorem est laboriosam nemo. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci beatae debitis
+                delectus dolorum, eum ex expedita inventore perspiciatis placeat porro quidem soluta tenetur
+                voluptatum! Consequatur distinctio dolorem est laboriosam nemo. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci beatae debitis
+                delectus dolorum, eum ex expedita inventore perspiciatis placeat porro quidem soluta tenetur
+                voluptatum! Consequatur distinctio dolorem est laboriosam nemo.
+            </p>
+        </article>
+        <div class="card-actions justify-end">
+            <button class="btn btn-primary my-8 btn-xs sm:btn-sm md:btn-md lg:btn-lg xl:btn-xl">
+                Listen
+            </button>
         </div>
     </div>
+</div>
 
-    <div class="divider mx-8">Comments</div>
-    <div class="flex flex-col lg:flex-row gap-4 my-8 mx-8">
-        <div class="card bg-base-300 rounded-box grid h-32 flex-grow place-items-center">content</div>
-        <div class="divider lg:divider-horizontal"></div>
-        <div class="card bg-base-300 rounded-box grid h-32 flex-grow place-items-center">content</div>
-        <div class="divider lg:divider-horizontal"></div>
-        <div class="card bg-base-300 rounded-box grid h-32 flex-grow place-items-center">content</div>
-    </div>
-    <div class="divider mx-8"></div>
+<div class="divider m-5 text-2xl">Latest Posts</div>
+<div class="flex flex-col lg:flex-row gap-4 m-5 overflow-x-hidden">
+    <div class="card bg-base-300 rounded-box grid h-32 flex-grow place-items-center min-w-[200px]">content</div>
+    <div class="divider lg:divider-horizontal"></div>
+    <div class="card bg-base-300 rounded-box grid h-32 flex-grow place-items-center min-w-[200px]">content</div>
+    <div class="divider lg:divider-horizontal"></div>
+    <div class="card bg-base-300 rounded-box grid h-32 flex-grow place-items-center min-w-[200px]">content</div>
+</div>
+<div class="divider m-5"></div>
 {% endblock %}

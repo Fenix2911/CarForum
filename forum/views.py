@@ -14,6 +14,7 @@ from .models import CustomUser, Follow, Notification, Car
 class HomePageView(View):
     def get(self, request):
         return render(request, "forum/index.html", )
+    #TODO:Check the model for the posts and the cars and add them to the context, verify template index.html, add Django template tags to display the posts and the cars. Change Shop to spot
 
 class RegisterUserView(View):
     def get(self, request):
@@ -33,6 +34,8 @@ class ProfileView(DetailView):
     slug_field = "username"
     slug_url_kwarg = "username"
 
+    #TODO: User login template to do
+
 
 class SettingsView(LoginRequiredMixin, View):
     def get(self, request):
@@ -49,7 +52,7 @@ class MostRatedCarsView(ListView):
         context = super().get_context_data(**kwargs)
         context["top_cars"] = Car.objects.order_by("-horsepower")[:3]
         return context
-
+    #TODO: Add the like logic to the posts,
 
 class LoginPageView(View):
     def get(self, request):
