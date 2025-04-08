@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %}
+	    {{ post.title }}
+{% endblock %}
+
+{% block main %}
+{{ post.description }}
+{{ post.image.url }}
+{{ post.created_at }}
+{{ post.updated_at }}
+{% endblock %}
+

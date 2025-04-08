@@ -3,18 +3,35 @@ from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views import View
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, TemplateView
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.db.models.signals import post_save
 from django.dispatch import receiver
-from .models import CustomUser, Follow, Notification, Car
+from .models import *
 
 
-class HomePageView(View):
-    def get(self, request):
-        return render(request, "forum/index.html", )
-    #TODO:Check the model for the posts and the cars and add them to the context, verify template index.html, add Django template tags to display the posts and the cars. Change Shop to spot
+class HomePageView(ListView):
+    model = Post
+    template_name = "forum/index.html"
+    context_object_name = "posts"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        latest_post = Post.objects.order_by('-post_date').first()
+        other_posts = Post.objects.order_by('-post_date')[1:4]
+        context["latest_post"] = latest_post
+        context["other_posts"] = other_posts
+        return context
+
+    # TODO:Check the model for the posts and the cars and add them to the context, verify template index.html, add Django template tags to display the posts and the cars. Change Shop to spot
+
+
+class PostDetailView(DetailView):
+    model = Post
+    template_name = "forum/post_detail.html"
+    context_object_name = "post"
+
 
 class RegisterUserView(View):
     def get(self, request):
@@ -27,6 +44,7 @@ class RegisterUserView(View):
         CustomUser.objects.create_user(username=username, email=email, password=password)
         return redirect("login")
 
+
 class ProfileView(DetailView):
     template_name = "forum/profile.html"
     model = CustomUser
@@ -34,7 +52,7 @@ class ProfileView(DetailView):
     slug_field = "username"
     slug_url_kwarg = "username"
 
-    #TODO: User login template to do
+    # TODO: User login template to do
 
 
 class SettingsView(LoginRequiredMixin, View):
@@ -47,22 +65,22 @@ class MostRatedCarsView(ListView):
     template_name = "forum/highlighted.html"
 
     def get_context_data(
-        self, *, object_list = ..., **kwargs
+            self, *, object_list=..., **kwargs
     ):
         context = super().get_context_data(**kwargs)
         context["top_cars"] = Car.objects.order_by("-horsepower")[:3]
         return context
-    #TODO: Add the like logic to the posts,
+    # TODO: Add the like logic to the posts,
+
 
 class LoginPageView(View):
     def get(self, request):
-            return render(request, "registration/login.html")
-
+        return render(request, "registration/login.html")
 
 
 class LogoutPageView(View):
-        def get(self, request):
-            logout(request)
+    def get(self, request):
+        logout(request)
 
 
 class FollowUserView(LoginRequiredMixin, View):
@@ -101,3 +119,4 @@ class NotificationListView(LoginRequiredMixin, ListView):
 
     def get_queryset(self):
         return self.request.user.notifications_received.all()
+

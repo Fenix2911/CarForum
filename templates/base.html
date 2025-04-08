@@ -14,8 +14,10 @@
           rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css"/>
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5.0.0/themes.css" rel="stylesheet" type="text/css"/>
+    <link rel="icon" type="image/x-icon" href="/media/images/icon.png">
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <script src="https://cdn.jsdelivr.net/npm/theme-change@2.0.2/index.js"></script>
+    <script src="https://unpkg.com/htmx.org@2.0.4"></script>
 </head>
 <body class="min-h-screen bg-base-100 flex flex-col font-[Roboto_Mono] m-0 p-0">
 
@@ -30,16 +32,16 @@
                     <ul tabindex="0" class="dropdown-content menu bg-base-200 rounded-box w-52 p-2 mt-3 shadow ">
                         <li><a class="btn btn-ghost font-normal" href="{% url 'home-page' %}">Home Page</a></li>
                         <li><a class="btn btn-ghost font-normal" href="{% url 'highlighted' %}">Highlighted</a></li>
-                        <li><a class="btn btn-ghost font-normal">Forum</a></li>
-                        <li><a class="btn btn-ghost font-normal">Shop</a></li>
+                        <li><a class="btn btn-ghost font-normal" disabled="disabled">Forum</a></li>
+                        <li><a class="btn btn-ghost font-normal" disabled="disabled">Shop</a></li>
                     </ul>
                 </div>
                 <!-- Menu dla dużych ekranów: widoczne dopiero od lg -->
                 <div class="hidden lg:flex gap-4">
                     <a class="btn btn-ghost text-xl" href="{% url 'home-page' %}">Home Page</a>
                     <a class="btn btn-ghost text-xl" href="{% url 'highlighted' %}">Highlighted</a>
-                    <a class="btn btn-ghost text-xl">Forum</a>
-                    <a class="btn btn-ghost text-xl">Shop</a>
+                    <a class="btn btn-ghost text-xl" disabled="disabled">Forum</a>
+                    <a class="btn btn-ghost text-xl" disabled="disabled">Shop</a>
                 </div>
             </div>
             <label class="swap swap-rotate mr-4">

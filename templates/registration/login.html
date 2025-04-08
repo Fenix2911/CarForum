@@ -1,43 +1,29 @@
 {% extends "base.html" %}
-{% load compress %}
-{% load static %}
-
-{% block nav %}
-{% endblock %}
 {% block main %}
-
-  {% if form.errors %}
-    <p>Your username and password didn't match. Please try again.</p>
-  {% endif %}
-
-  {% if next %}
-    {% if user.is_authenticated %}
-      <p>Your account doesn't have access to this page. To proceed,
-      please login with an account that has access.</p>
-    {% else %}
-      <p>Please login to see this page.</p>
-    {% endif %}
-  {% endif %}
-
-  <form method="post" action="{% url 'login' %}">
-    {% csrf_token %}
-    <table>
-      <tr>
-        <td>{{ form.username.label_tag }}</td>
-        <td>{{ form.username }}</td>
-      </tr>
-      <tr>
-        <td>{{ form.password.label_tag }}</td>
-        <td>{{ form.password }}</td>
-      </tr>
-    </table>
-    <input type="submit" value="login">
-    <input type="hidden" name="next" value="{{ next }}">
-  </form>
-
-  {# Assumes you set up the password_reset view in your URLconf #}
-  <p><a href="{% url 'password_reset' %}">Lost password?</a></p>
-
-{% endblock %}
-{% block footer %}
+    <section class="flex items-center justify-center min-h-96 pt-24">
+        <div class="card lg:card-side bg-base-200 shadow-sm">
+            <figure class="lg:w-[60%] w-full flex items-center justify-center p-4">
+            <img
+                    src="/media/images/hero.png"
+                    alt="Album"
+                    class="rounded-lg object-cover max-h-[600px] w-full"/>
+        </figure>
+            <div class="card-body">
+                <form method="post" action="{% url 'login' %}">
+                    {% csrf_token %}
+                    <label class="fieldset-label py-2">{{ form.username.label_tag }}</label>
+                    <input type="text" class="input" placeholder="Username" name="username"/>
+                    <label class="fieldset-label py-2">Password</label>
+                    <input type="password" class="input" placeholder="Password" name="password"/>
+                    <div class="py-2">
+                        <a class="link link-hover mt-4" href="{% url 'password_reset' %}">Forgot password?</a>
+                    </div>
+                    <button class="btn btn-neutral mt-4">Login</button>
+                </form>
+                {% if form.errors %}
+                    <p class="text-error">Your username and password didn't match. Please try again.</p>
+                {% endif %}
+            </div>
+        </div>
+    </section>
 {% endblock %}

@@ -4,8 +4,9 @@ from django.contrib.auth.models import AbstractUser, Group, Permission
 
 # Create your models here.
 
+
 class CustomUser(AbstractUser):
-    avatar = models.ImageField(upload_to='avatars/', blank=True, null=True)
+    avatar = models.ImageField(upload_to="avatars/", blank=True, null=True)
     bio = models.TextField(blank=True, null=True)
 
     def __str__(self):
@@ -21,7 +22,7 @@ class CustomUser(AbstractUser):
 
 
 class Car(models.Model):
-    owner = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name='cars')
+    owner = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name="cars")
     brand = models.CharField(max_length=100)
     model = models.CharField(max_length=100)
     year = models.IntegerField()
@@ -30,23 +31,32 @@ class Car(models.Model):
     torque = models.IntegerField(blank=True, null=True)
     transmission = models.CharField(
         max_length=50,
-        choices=[('manual', 'Manual'), ('automatic', 'Automatic')],
+        choices=[("manual", "Manual"), ("automatic", "Automatic")],
         blank=True,
-        null=True
+        null=True,
     )
     drivetrain = models.CharField(
         max_length=50,
-        choices=[('FWD', 'Front-Wheel Drive'), ('RWD', 'Rear-Wheel Drive'), ('AWD', 'All-Wheel Drive')],
+        choices=[
+            ("FWD", "Front-Wheel Drive"),
+            ("RWD", "Rear-Wheel Drive"),
+            ("AWD", "All-Wheel Drive"),
+        ],
         blank=True,
-        null=True
+        null=True,
     )
     fuel_type = models.CharField(
         max_length=50,
-        choices=[('gasoline', 'Gasoline'), ('diesel', 'Diesel'), ('electric', 'Electric'), ('hybrid', 'Hybrid')],
+        choices=[
+            ("gasoline", "Gasoline"),
+            ("diesel", "Diesel"),
+            ("electric", "Electric"),
+            ("hybrid", "Hybrid"),
+        ],
         blank=True,
-        null=True
+        null=True,
     )
-    image = models.ImageField(upload_to='images/car_images/', blank=True, null=True)
+    image = models.ImageField(upload_to="images/car_images/", blank=True, null=True)
 
     def __str__(self):
         return f"{self.brand} {self.model} ({self.year})"
@@ -57,13 +67,13 @@ class Post(models.Model):
     car = models.ForeignKey(Car, on_delete=models.CASCADE)
     title = models.CharField(max_length=255)
     description = models.TextField()
-    image = models.ImageField(upload_to='post_images/', blank=True, null=True)
+    image = models.ImageField(upload_to="post_images/", blank=True, null=True)
     post_date = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     status = models.CharField(
         max_length=50,
-        choices=[('active', 'Active'), ('deleted', 'Deleted')],
-        default='active'
+        choices=[("active", "Active"), ("deleted", "Deleted")],
+        default="active",
     )
 
     def __str__(self):
@@ -74,22 +84,23 @@ class Post(models.Model):
         return self.likes.count()
 
 
-
 class Like(models.Model):
-    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name='likes')
-    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='likes')
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name="likes")
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="likes")
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
-        unique_together = ('user', 'post')
+        unique_together = ("user", "post")
 
     def __str__(self):
         return f"{self.user.username} liked {self.post.title}"
 
 
 class Comment(models.Model):
-    author = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name='comments')
-    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments')
+    author = models.ForeignKey(
+        CustomUser, on_delete=models.CASCADE, related_name="comments"
+    )
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="comments")
     content = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
 
@@ -99,7 +110,9 @@ class Comment(models.Model):
 
 class Thread(models.Model):
     title = models.CharField(max_length=255)
-    author = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name='threads')
+    author = models.ForeignKey(
+        CustomUser, on_delete=models.CASCADE, related_name="threads"
+    )
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
@@ -107,8 +120,10 @@ class Thread(models.Model):
 
 
 class ForumPost(models.Model):
-    thread = models.ForeignKey(Thread, on_delete=models.CASCADE, related_name='posts')
-    author = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name='forum_posts')
+    thread = models.ForeignKey(Thread, on_delete=models.CASCADE, related_name="posts")
+    author = models.ForeignKey(
+        CustomUser, on_delete=models.CASCADE, related_name="forum_posts"
+    )
     content = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
 
@@ -117,11 +132,33 @@ class ForumPost(models.Model):
 
 
 class Notification(models.Model):
-    recipient = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name='notifications_received')
-    sender = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name='sent_notifications')
-    post = models.ForeignKey(Post, on_delete=models.CASCADE, blank=True, null=True, related_name='notifications')
-    thread = models.ForeignKey(Thread, on_delete=models.CASCADE, blank=True, null=True, related_name='notifications')
-    comment = models.ForeignKey(Comment, on_delete=models.CASCADE, blank=True, null=True, related_name='notifications')
+    recipient = models.ForeignKey(
+        CustomUser, on_delete=models.CASCADE, related_name="notifications_received"
+    )
+    sender = models.ForeignKey(
+        CustomUser, on_delete=models.CASCADE, related_name="sent_notifications"
+    )
+    post = models.ForeignKey(
+        Post,
+        on_delete=models.CASCADE,
+        blank=True,
+        null=True,
+        related_name="notifications",
+    )
+    thread = models.ForeignKey(
+        Thread,
+        on_delete=models.CASCADE,
+        blank=True,
+        null=True,
+        related_name="notifications",
+    )
+    comment = models.ForeignKey(
+        Comment,
+        on_delete=models.CASCADE,
+        blank=True,
+        null=True,
+        related_name="notifications",
+    )
     message = models.CharField(max_length=255)
     is_read = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -130,15 +167,17 @@ class Notification(models.Model):
         return f"Notification for {self.recipient.username}: {self.message}"
 
 
-
 class Follow(models.Model):
-    follower = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name='following')
-    following = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name='followers')
+    follower = models.ForeignKey(
+        CustomUser, on_delete=models.CASCADE, related_name="following"
+    )
+    following = models.ForeignKey(
+        CustomUser, on_delete=models.CASCADE, related_name="followers"
+    )
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
-        unique_together = ('follower', 'following')
+        unique_together = ("follower", "following")
 
     def __str__(self):
         return f"{self.follower.username} follows {self.following.username}"
-
