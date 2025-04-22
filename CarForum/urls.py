@@ -24,7 +24,8 @@ urlpatterns = (
     [
         path("admin/", admin.site.urls),
         path("accounts/", include("django.contrib.auth.urls")),
-        path("", include("forum.urls")),
+        path("moto/", include("forum.urls")),
+        path("", include("portfolio.urls")),
     ]
     + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
     + debug_toolbar_urls()

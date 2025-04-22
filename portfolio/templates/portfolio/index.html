@@ -1,0 +1,533 @@
+{% extends 'base.html' %} {% load static %} {% block title %}Jakub Kuc -
+Portfolio{% endblock %} {%block drawer%}
+<label for="my-drawer-2" class="btn rounded-2xl drawer-button lg:hidden">
+  Navigation
+</label>
+{% endblock %} {% block main%}
+<div class="drawer lg:drawer-open">
+  <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
+  <div class="drawer-content flex flex-col items-center justify-center">
+    <div
+      class="flex w-full flex-col bg-base-200 px-[5%] max-w-screen sm:max-w-screen md:px-6"
+    >
+      <container id="about">
+        <div class="hero min-h-screen bg-base-200 -mb-32 lg:-mb-16">
+          <div class="hero-content flex flex-col lg:flex-row">
+            {% comment %}
+            <img
+              src="https://github.com/Fenix2911.png"
+              class="w-96 sm:max-w-sm rounded-lg shadow-2xl"
+              loading="lazy"
+            />
+            {% endcomment %}
+            <div>
+              <h1 class="text-4xl lg:text-6xl font-bold font-[Kanit]">
+                Jakub Kuc <a href="https://github.com/Fenix2911">(Fenix2911)</a>
+              </h1>
+              <p class="py-6 text-lg sm:text-xl">
+                <i
+                  >Currently studying Computer Science with a focus on Mobile
+                  and Web Applications. Gained practical experience through
+                  network administration and an Erasmus+ internship. Seeking
+                  Internship/Junior DevOps or Python Developer Roles. Proficient
+                  in agile methodologies and strategic teamwork.</i
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+      </container>
+      <div
+        class="divider divider-primary font-bold py-4 text-2xl scroll-mt-[8vh]"
+        id="experience"
+      >
+        Experience
+      </div>
+      <container class="rounded-lg bg-base-200 p-4 border-2 border-primary">
+        <ul
+          class="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical"
+        >
+          <li>
+            <hr />
+            <div class="timeline-middle">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                class="h-5 w-5"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </div>
+            <div class="timeline-end mb-10">
+              <time class="font-mono italic">October 2024 - Present</time>
+              <div class="text-lg font-black">
+                Trainee In The Production Department In Brembo Poland Sp. z o.o
+              </div>
+              <p>
+                As an Intern in the production department, I am responsible for
+                implementing and overseeing Autonomous Maintenance (AM)
+                processes, including the AM TAG system. In this role:
+                <br /><br />
+                <i>
+                  I coordinate activities aimed at improving production
+                  efficiency, minimizing downtime, and optimizing processes.
+                  <br />
+                  I maintain technical documentation and conduct performance
+                  analyses, supporting the continuous improvement of production
+                  operations.
+                  <br />
+                  I actively participate in production management as part of the
+                  Shop Floor Management pillar, which includes direct
+                  supervision on the production floor.</i
+                >
+                <br /><br />
+                <b>Interdepartmental Collaboration:</b>
+                <br /><br />
+                <i>
+                  I work closely with the Optimization department and the
+                  Machining Training School (MTS), supporting initiatives aimed
+                  at streamlining processes.<br />
+                  I regularly participate in daily meetings where we analyze
+                  production results, identify areas for improvement, and
+                  develop action plans.<br />
+                  I gain practical experience in managing documentation and
+                  implementing tools related to World Class Manufacturing
+                  (WCM).</i
+                >
+              </p>
+            </div>
+            <hr />
+          </li>
+          <li>
+            <div class="timeline-middle">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                class="h-5 w-5"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </div>
+            <div class="timeline-start mb-10 md:text-end">
+              <time class="font-mono italic">June 2024 - September 2024</time>
+              <div class="text-lg font-black">
+                Production Worker | Brembo Poland sp. z o.o.
+              </div>
+              <p>
+                Supervision and operation of production machines on the brake
+                disc production line, including CNC machines. Monitoring product
+                quality to ensure compliance with technical standards.
+                Performing routine maintenance and inspections of machinery.
+                Loading and unloading of castings. Ensuring proper documentation
+                of production processes and parameters. Active participation in
+                World Class Manufacturing (WCM) Safety initiatives, assisting in
+                the implementation of IT solutions for safety management and
+                process optimization in Hall A.
+              </p>
+            </div>
+            <hr />
+          </li>
+          <li>
+            <hr />
+            <div class="timeline-middle">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                class="h-5 w-5"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </div>
+            <div class="timeline-end mb-10">
+              <time class="font-mono italic">July - August 2023</time>
+              <div class="text-lg font-black">
+                Water Lifeguard | WOPR Gliwice |
+              </div>
+              <p>
+                Care and supervision over the safety of people using the
+                designated swimming area. Respecting the regulations in force at
+                the swimming pool. Providing first aid to people in need.
+                Inspection of the condition of devices and equipment necessary
+                for work that ensures the safety of bathers.
+              </p>
+            </div>
+            <hr />
+          </li>
+          <li>
+            <hr />
+            <div class="timeline-middle">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                class="h-5 w-5"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </div>
+            <div class="timeline-start mb-10 md:text-end">
+              <time class="font-mono italic">May 2022</time>
+              <div class="text-lg font-black">
+                Intership | Berbegal S.L Valencia |
+              </div>
+              <p>
+                Participation in a foreign professional internship in the KA1
+                action of the Erasmus+ European cooperation program at Berbegal
+                SL, a company specializing in CNC products. As part of the
+                Erasmus+ project, obtaining EuroPass for mobility towards a
+                professional diploma.
+              </p>
+            </div>
+            <hr />
+          </li>
+          <li>
+            <hr />
+            <div class="timeline-middle">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                class="h-5 w-5"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </div>
+            <div class="timeline-end mb-10">
+              <time class="font-mono italic">August 2021</time>
+              <div class="text-lg font-black">Intership | S-Tronik |</div>
+              <p>
+                Internships organized by the Międzynarodowe Centrum Doskonalenia
+                Zawodowego sp. z o.o. and Zespół Szkół Elektronicznych i
+                Informatycznych w Sosnowcu as part of the project entitled
+                "Informatyk Przyszłości". The main responsibilities included the
+                administration and expansion of the computer network and the
+                configuration of network equipment at clients' premises.
+              </p>
+            </div>
+            <hr />
+          </li>
+        </ul>
+      </container>
+      <div
+        class="divider divider-primary font-bold py-4 text-2xl scroll-mt-[8vh]"
+        id="education"
+      >
+        Education
+      </div>
+      <container class="flex justify-center rounded-xl">
+        <div class="flex flex-col lg:flex-row justify-center">
+          <div class="card w-full lg:w-1/2 border-2 border-primary">
+            <div class="card-body w-full">
+              <h2 class="card-title text-center lg:text-left">
+                WSB ACADEMY IN DĄBROWA GÓRNICZA
+              </h2>
+              <div class="p-4 max-w-full text-justify">
+                <p>
+                  <b
+                    >Bachelor of Engineering in Computer Science – Web and
+                    Mobile Applications Specialization</b
+                  >
+                </p>
+              </div>
+              <hr class="my-4" />
+              <p>
+                Focused on the development of web and mobile applications, this
+                program covers key areas such as:
+              </p>
+              <ul class="list-disc list-inside indent-6">
+                <li>
+                  Frontend and backend development using modern technologies
+                  (HTML, CSS, JavaScript, Node.js)
+                </li>
+                <li>
+                  Mobile app development for Android and iOS (Java, Kotlin,
+                  Swift, React Native)
+                </li>
+                <li>Database management (SQL, NoSQL)</li>
+                <li>Application security and data protection</li>
+                <li>UX/UI design for user-friendly interfaces</li>
+              </ul>
+              <hr class="my-4" />
+              <div class="card-actions justify-end">
+                <time class="font-mono italic">March 2024 - Present</time>
+              </div>
+            </div>
+          </div>
+          <div class="divider lg:divider-horizontal my-4"></div>
+
+          <div class="card w-full lg:w-1/2 border-2 border-primary">
+            <div class="card-body">
+              <h2 class="card-title text-center lg:text-left">
+                ZESPÓŁ SZKÓŁ ELEKTRONICZNYCH I INFORMATYCZNYCH W SOSNOWCU
+              </h2>
+              <div class="p-4 max-w-full text-justify">
+                <p><b>IT Technician </b></p>
+                <br class="hidden sm:block" />
+              </div>
+              <hr class="my-4" />
+              <p>
+                Comprehensive training in IT systems and technologies, focusing
+                on:
+              </p>
+              <ul class="list-disc list-inside indent-6">
+                <li>
+                  Computer network administration and maintenance (LAN, WAN)
+                </li>
+                <li>Software and hardware installation and troubleshooting</li>
+                <li>Programming in multiple languages (C++, Python, Java)</li>
+                <li>Database management (SQL)</li>
+                <li>Basics of web development (HTML, CSS, JavaScript, PHP)</li>
+              </ul>
+              <hr class="my-4" />
+              <div class="card-actions justify-end">
+                <time class="font-mono italic"
+                  >September 2019 - April 2023</time
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </container>
+      <div
+        class="divider divider-primary font-bold py-4 text-2xl scroll-mt-[8vh]"
+        id="projects"
+      >
+        Projects
+      </div>
+      <container class="flex flex-col justify-around sm:flex-row">
+        <div class="card w-96 rounded-xl border-2 border-primary">
+          <div class="card-body">
+            <h2 class="card-title">Discord Bets</h2>
+            <p>
+              This VirtualBets bot enables users to participate in a simulated
+              betting experience on Discord. Players can register, manage their
+              virtual balance, and place bets with dynamically calculated odds.
+              Whether you’re looking to compete with friends or test your
+              betting strategies, VirtualBets adds an engaging, interactive
+              layer to your Discord community.
+            </p>
+            <div class="badges flex flex-wrap gap-2">
+              <div class="badge badge-neutral">Python</div>
+              <div class="badge badge-neutral">Interactions</div>
+              <div class="badge badge-neutral">Discord.py</div>
+              <div class="badge badge-neutral">OracleDB</div>
+              <div class="badge badge-neutral">Oracle OCI</div>
+            </div>
+            <div class="card-actions justify-end">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="size-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+        <div class="divider lg:divider-horizontal my-4"></div>
+        <div class="card w-96 rounded-xl border-2 border-primary">
+          <div class="card-body">
+            <h2 class="card-title">Tuned Cars</h2>
+            <p>
+              Tuned Cars is a platform where automotive enthusiasts can showcase
+              and review customized vehicles. Users can post images and details
+              of their modified cars, share their unique builds with the
+              community, and rate other users' vehicles. Whether you're a car
+              enthusiast looking to get feedback on your latest project or just
+              enjoy browsing through creative modifications, Tuned Cars provides
+              a space for interaction and inspiration among car lovers.
+            </p>
+            <div class="badges flex flex-wrap gap-2">
+              <div class="badge badge-neutral">Python</div>
+              <div class="badge badge-neutral">Django</div>
+              <div class="badge badge-neutral">HTML5</div>
+              <div class="badge badge-neutral">TailwindCSS</div>
+              <div class="badge badge-neutral">OracleDB</div>
+              <div class="badge badge-neutral">Oracle OCI</div>
+            </div>
+            <div class="card-actions justify-end">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="size-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+        <div class="divider lg:divider-horizontal my-4"></div>
+        <div class="card w-96 rounded-xl border-2 border-primary">
+          <div class="card-body">
+            <h2 class="card-title">CSGODLE</h2>
+            <p>
+              CSGODle allows CS:GO players to discover, create, and share custom
+              challenges and tasks within the game. Whether you're a seasoned
+              veteran or a new player, CSGODle offers a platform to enhance your
+              gaming experience by adding new dimensions to your gameplay.
+            </p>
+            <div class="badges flex flex-wrap gap-2">
+              <div class="badge badge-neutral">Python</div>
+              <div class="badge badge-neutral">Django</div>
+              <div class="badge badge-neutral">HTML5</div>
+              <div class="badge badge-neutral">TailwindCSS</div>
+              <div class="badge badge-neutral">JavaScript</div>
+              <div class="badge badge-neutral">OracleDB</div>
+              <div class="badge badge-neutral">Oracle OCI</div>
+            </div>
+            <div class="card-actions justify-end">
+              <button class="btn btn-primary mt-5">
+                <a href="https://github.com/Fenix2911/CSGODLE"
+                  >Github repository</a
+                >
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="divider lg:divider-horizontal my-4"></div>
+        <div class="card w-96 rounded-xl border-2 border-primary">
+          <div class="card-body">
+            <h2 class="card-title">Weather-API</h2>
+            <p>
+              This weather application retrieves and displays current weather
+              information for the user's location. By utilizing the WeatherAPI,
+              it fetches data such as temperature, humidity, wind speed, and
+              feels-like temperature. The application can be run in a simple
+              terminal or GUI mode. In terminal mode, it prints out the weather
+              details, including temperature in Celsius, Fahrenheit, and Kelvin.
+              When using the GUI (commented out), it presents the weather
+              information in a user-friendly window with labels for each weather
+              parameter.
+            </p>
+            <div class="badges flex flex-wrap gap-2">
+              <div class="badge badge-neutral">Python</div>
+              <div class="badge badge-neutral">Requests</div>
+              <div class="badge badge-neutral">Tkinter</div>
+              <div class="badge badge-neutral">API</div>
+            </div>
+            <div class="card-actions justify-end">
+              <button class="btn btn-primary mt-5">
+                <a href="https://github.com/Fenix2911/Weather-API"
+                  >Github repository</a
+                >
+              </button>
+            </div>
+          </div>
+        </div>
+      </container>
+      <div
+        class="divider divider-primary py-4 text-2xl scroll-mt-[8vh]"
+        id="interests"
+      >
+        Interests
+      </div>
+      <container class="flex flex-col justify-around sm:flex-row">
+        <div class="card w-96 sm:w-1/3 border-2 border-primary">
+          <div class="card-body">
+            <h2 class="card-title">Voleyball</h2>
+            <p>
+              I actively support my local volleyball club, where I regularly
+              engage in events and matches. My passion for volleyball has
+              fostered teamwork and discipline, which I apply both on and off
+              the court.
+            </p>
+            <div class="card-actions justify-end"></div>
+          </div>
+        </div>
+        <div class="divider lg:divider-horizontal my-4"></div>
+        <div class="card w-96 sm:w-1/3 border-2 border-primary">
+          <div class="card-body rounded-xl">
+            <h2 class="card-title">Swimming</h2>
+            <p>
+              Swimming is a significant part of my life, and my role as a
+              lifeguard allows me to ensure the safety of others. I prioritize
+              safety and follow regulations closely, offering first aid when
+              necessary to maintain a secure environment for swimmers.
+            </p>
+            <div class="card-actions justify-end"></div>
+          </div>
+        </div>
+        <div class="divider lg:divider-horizontal my-4"></div>
+        <div class="card w-96 sm:w-1/3 border-2 border-primary">
+          <div class="card-body">
+            <h2 class="card-title">Programming</h2>
+            <p>
+              Programming is my passion and a key focus for my future career. I
+              am dedicated to expanding my skills through various projects and
+              educational opportunities, working towards becoming a proficient
+              software developer.
+            </p>
+            <div class="card-actions justify-end"></div>
+          </div>
+        </div>
+      </container>
+      <div
+        class="divider divider-primary py-4 text-2xl scroll-mt-[8vh]"
+        id="contact"
+      >
+        Contact
+      </div>
+    </div>
+  </div>
+  <div class="drawer-side">
+    <label
+      for="my-drawer-2"
+      aria-label="close sidebar"
+      class="drawer-overlay"
+    ></label>
+    <ul
+      class="menu bg-base-200 text-base-content min-h-full w-48 p-4 justify-center items-center font-[Kanit] text-3xl lg:w-64"
+    >
+      <div class="avatar">
+        <div class="w-32 rounded-full my-4 lg:w-48">
+          <img src="https://github.com/Fenix2911.png" loading="lazy" />
+        </div>
+      </div>
+      <!-- Sidebar content here -->
+      <li><a href="#">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#interests">Interests</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</div>
+{% endblock%}

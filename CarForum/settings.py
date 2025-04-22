@@ -41,7 +41,9 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "forum.apps.ForumConfig",
+    "portfolio.apps.PortfolioConfig",
     "compressor",
+
 ]
 
 MIDDLEWARE = [
