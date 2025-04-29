@@ -1,29 +1,53 @@
-{% extends "base.html" %}
-{% block main %}
-    <section class="flex items-center justify-center min-h-96 pt-24">
-        <div class="card lg:card-side bg-base-200 shadow-sm">
-            <figure class="lg:w-[60%] w-full flex items-center justify-center p-4">
-            <img
-                    src="/media/images/hero.png"
-                    alt="Album"
-                    class="rounded-lg object-cover max-h-[600px] w-full"/>
-        </figure>
-            <div class="card-body">
-                <form method="post" action="{% url 'login' %}">
-                    {% csrf_token %}
-                    <label class="fieldset-label py-2">{{ form.username.label_tag }}</label>
-                    <input type="text" class="input" placeholder="Username" name="username"/>
-                    <label class="fieldset-label py-2">Password</label>
-                    <input type="password" class="input" placeholder="Password" name="password"/>
-                    <div class="py-2">
-                        <a class="link link-hover mt-4" href="{% url 'password_reset' %}">Forgot password?</a>
-                    </div>
-                    <button class="btn btn-neutral mt-4">Login</button>
-                </form>
-                {% if form.errors %}
-                    <p class="text-error">Your username and password didn't match. Please try again.</p>
-                {% endif %}
-            </div>
+{% extends "base.html" %} {% block main %}
+<section class="flex items-center justify-center min-h-96 pt-24">
+  <div class="card lg:card-side bg-base-200 shadow-sm">
+    <figure class="lg:w-[60%] w-full flex items-center justify-center p-4">
+      <img
+        src="/media/images/hero.png"
+        alt="Album"
+        class="rounded-lg object-cover max-h-[600px] w-full"
+      />
+    </figure>
+    <div class="card-body">
+      <form method="post" action="{% url 'login' %}">
+        {% csrf_token %}
+        <label class="fieldset-label py-2 text"
+          >{{ form.username.label_tag }}</label
+        >
+        <input
+          type="text"
+          class="input"
+          placeholder="Username"
+          name="username"
+        />
+        <p class="text-error pb-2">{{form.username.errors}}</p>
+        <label class="fieldset-label py-2">Password</label>
+        <input
+          type="password"
+          class="input"
+          placeholder="Password"
+          name="password"
+        />
+        <p class="text-error pb-2">{{form.password.errors}}</p>
+        <div class="py-2">
+          <a
+            class="link link-hover mt-4 italic"
+            >Forgot password?</a
+          >
         </div>
-    </section>
+        <button class="btn btn-neutral mt-4">Login</button>
+      </form>
+      {% if form.errors %}
+      <p class="text-error">
+        Your username and password didn't match. Please try again.
+      </p>
+      {% endif %}
+      <div class="py-2">
+        <p class="text-sm text-center">
+          Don't have an account?
+          <a class="link link-hover" href="{% url 'register' %}">Sign up</a>
+        </p>
+    </div>
+  </div>
+</section>
 {% endblock %}

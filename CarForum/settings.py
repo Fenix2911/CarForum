@@ -43,7 +43,6 @@ INSTALLED_APPS = [
     "forum.apps.ForumConfig",
     "portfolio.apps.PortfolioConfig",
     "compressor",
-
 ]
 
 MIDDLEWARE = [

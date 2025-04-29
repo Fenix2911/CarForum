@@ -1,0 +1,12 @@
+{% extends 'base.html' %} {% block main %}
+<section class="flex items-center justify-center min-h-96 pt-24">
+  
+  <fieldset class="fieldset">
+    <form action="{% url 'register' %}" method="post">
+  {% csrf_token %}
+   {{form.as_p}}
+    <button type="submit class="btn btn-neutral mt-4" ">Register</button>
+      </form>
+    </fieldset>
+</section>
+{% endblock %}
