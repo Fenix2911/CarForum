@@ -51,7 +51,10 @@ class UserLoginView(LoginView):
     redirect_authenticated_user = True
 
     def get_success_url(self):
-        return reverse_lazy("home")  # Zmień na swój URL po zalogowaniu
+        username = self.request.user.username
+        return reverse_lazy(
+            "profile", kwargs={"username": username}
+        )  # Zmień na swój URL po zalogowaniu
 
 
 class UserLogoutView(LogoutView):

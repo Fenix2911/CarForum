@@ -136,10 +136,23 @@
               class="btn btn-ghost btn-circle avatar"
             >
               <div class="w-10 rounded-full">
+                {% if not user.is_authenticated %}
                 <img
-                  alt="Tailwind CSS Navbar component"
-                  src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
+                  src="/media/images/hero.png"
+                  class="rounded-circle"
+                  height="35"
+                  alt=""
+                  loading="lazy"
                 />
+                {% else %}
+                <img
+                  src="{{ user.avatar.url }}"
+                  class="rounded-circle"
+                  height="35"
+                  alt="{{ user.username }}"
+                  loading="lazy"
+                />
+                {% endif %} />
               </div>
             </div>
 
@@ -157,7 +170,13 @@
                   <span class="badge">New</span>
                 </a>
               </li>
-              <li><a class="justify-between lg:text-2xl">Settings</a></li>
+              <li>
+                <a
+                  class="btn btn-ghost font-normal justify-between lg:text-2xl"
+                  disabled="disabled"
+                  >Settings</a
+                >
+              </li>
               <form method="post" action="{% url 'logout' %}">
                 {% csrf_token %}
                 <li>
