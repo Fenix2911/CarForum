@@ -48,6 +48,41 @@ Portfolio{% endblock %} {%block drawer%}
           class="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical"
         >
           <li>
+            <div class="timeline-middle">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                class="h-5 w-5"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </div>
+            <div class="timeline-start mb-10 md:text-end">
+              <time class="font-mono italic">May 2025 - Present</time>
+              <div class="text-lg font-black">
+                Trainee In The Optimization Department | Brembo Poland sp. z
+                o.o.
+              </div>
+              <p>
+                Internship in the Optimization Department, driving continuous
+                improvement through the implementation of Kaizen principles
+                within the WCM methodology. Designed and optimized process flows
+                using Microsoft Power Automate to streamline operations.
+                Collected, analyzed, and visualized production data across
+                daily, monthly, quarterly, and yearly reports to enable
+                data-driven decision-making. Supported the execution of WCM
+                projects by delivering actionable insights and contributing to
+                process efficiency improvements.
+              </p>
+            </div>
+            <hr />
+          </li>
+          <li>
             <hr />
             <div class="timeline-middle">
               <svg
@@ -64,7 +99,7 @@ Portfolio{% endblock %} {%block drawer%}
               </svg>
             </div>
             <div class="timeline-end mb-10">
-              <time class="font-mono italic">October 2024 - Present</time>
+              <time class="font-mono italic">October 2024 - April 2025</time>
               <div class="text-lg font-black">
                 Trainee In The Production Department In Brembo Poland Sp. z o.o
               </div>
@@ -321,7 +356,7 @@ Portfolio{% endblock %} {%block drawer%}
         <div class="card w-96 rounded-xl border-2 border-primary">
           <div class="card-body">
             <h2 class="card-title">Discord Bets</h2>
-            <p>
+            <p class="text-justify">
               This VirtualBets bot enables users to participate in a simulated
               betting experience on Discord. Players can register, manage their
               virtual balance, and place bets with dynamically calculated odds.
@@ -355,41 +390,42 @@ Portfolio{% endblock %} {%block drawer%}
           </div>
         </div>
         <div class="divider lg:divider-horizontal my-4"></div>
-        <div class="card w-96 rounded-xl border-2 border-primary">
-          <div class="card-body">
-            <h2 class="card-title">Tuned Cars</h2>
-            <p>
-              Tuned Cars is a platform where automotive enthusiasts can showcase
-              and review customized vehicles. Users can post images and details
-              of their modified cars, share their unique builds with the
-              community, and rate other users' vehicles. Whether you're a car
-              enthusiast looking to get feedback on your latest project or just
-              enjoy browsing through creative modifications, Tuned Cars provides
-              a space for interaction and inspiration among car lovers.
-            </p>
-            <div class="badges flex flex-wrap gap-2">
-              <div class="badge badge-neutral">Python</div>
-              <div class="badge badge-neutral">Django</div>
-              <div class="badge badge-neutral">HTML5</div>
-              <div class="badge badge-neutral">TailwindCSS</div>
-              <div class="badge badge-neutral">OracleDB</div>
-              <div class="badge badge-neutral">Oracle OCI</div>
-            </div>
-            <div class="card-actions justify-end">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                class="size-6"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z"
-                />
-              </svg>
+        <div class="indicator">
+          <span class="indicator-item badge badge-primary badge-lg"></span>
+          <div class="card w-96 rounded-xl border-2 border-primary">
+            <div class="card-body">
+              <h2 class="card-title">Tuned Cars</h2>
+              <p class="text-justify">
+                Tuned Cars is a platform where automotive enthusiasts can
+                showcase and review customized vehicles. Users can post images
+                and details of their modified cars, share their unique builds
+                with the community, and rate other users' vehicles. Whether
+                you're a car enthusiast looking to get feedback on your latest
+                project or just enjoy browsing through creative modifications,
+                Tuned Cars provides a space for interaction and inspiration
+                among car lovers.
+              </p>
+              <p class="italic text-sm text-info">Currently working on...</p>
+              <div class="badges flex flex-wrap gap-2">
+                <div class="badge badge-neutral">Python</div>
+                <div class="badge badge-neutral">Django</div>
+                <div class="badge badge-neutral">HTML5</div>
+                <div class="badge badge-neutral">TailwindCSS</div>
+                <div class="badge badge-neutral">DaisyUI</div>
+                <div class="badge badge-neutral">SQLite</div>
+                <div class="badge badge-neutral">Oracle OCI</div>
+                <div class="badge badge-neutral">Nginx</div>
+                <div class="badge badge-neutral">Gunicorn</div>
+              </div>
+              <div class="card-actions justify-end">
+                <div class="card-actions justify-end">
+                  <button class="btn btn-primary mt-5">
+                    <a href="https://github.com/Fenix2911/CarForum"
+                      >Github repository</a
+                    >
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -397,7 +433,7 @@ Portfolio{% endblock %} {%block drawer%}
         <div class="card w-96 rounded-xl border-2 border-primary">
           <div class="card-body">
             <h2 class="card-title">CSGODLE</h2>
-            <p>
+            <p class="text-justify">
               CSGODle allows CS:GO players to discover, create, and share custom
               challenges and tasks within the game. Whether you're a seasoned
               veteran or a new player, CSGODle offers a platform to enhance your
@@ -425,7 +461,7 @@ Portfolio{% endblock %} {%block drawer%}
         <div class="card w-96 rounded-xl border-2 border-primary">
           <div class="card-body">
             <h2 class="card-title">Weather-API</h2>
-            <p>
+            <p class="text-justify">
               This weather application retrieves and displays current weather
               information for the user's location. By utilizing the WeatherAPI,
               it fetches data such as temperature, humidity, wind speed, and
